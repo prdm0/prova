@@ -1,0 +1,149 @@
+---
+title: |
+  | Universidade Federal da Paraíba
+  | Centro de Ciências Exatas e da Natureza
+  | Departamento de Estatística
+abstract-title: "Instruções"
+abstract: 
+  Prezado discente, ao final da avaliação, você deverá enviar o script R para o
+  o email [**pedro.rafael.mariho@gmail.com**](mailto:pedro.rafael.mariho@gmail.com). No título do email deverá constar o seu nome
+  e sua matrícula. 
+  
+  No script, as respostas devem estar identificando bem as questões. Todos os comentários
+  deverão ser feitos utilizando comentários válidos em R, i.e., deverão utilizar `#`. 
+  
+subtitle: |
+  | **Introdução aos Sofwares Estatísticos / Programação em linguagem R**
+  | (Primeira Avaliação)
+author: "**Prof. Dr. Pedro Rafael D. Marinho**"
+date: "2022-09-23"
+lang: pt
+language: 
+  title-block-author-single: "Professor"
+  title-block-published: "Data da Avaliação"
+  
+format:
+  html:
+    code-link: true
+    toc: true
+    number-sections: false
+    code-copy: true
+    html-math-method: katex
+    code-tools:
+      source: false
+      toggle: false
+      caption: none
+    
+# places footnotes and cited sources in the margin
+# other layout options (for example placing a 
+# figure in the margin)  will be set on per element
+# in examples below
+reference-location: margin
+---
+
+## Questão 1:
+
+*Para acessar variáveis em um `data.frame` ou `tibble`, podemos utilizar os operadores `$` ou `[[`. Os operadores são totalmente redundantes? Existe alguma situação em que o uso do operador `[[` poderá ser preferível ao uso do operador `$`. Explique, e em caso afirmativo, dê um exempo.*
+
+## Questão 2:
+
+*Considere o conjunto de dados `AirPassengers`. Utilizando o funcional coveniente, obtenha um vetor atômico com a proporção de voos por meses dos respectivos anos. Obtenha um outro vetor atômico com a quantidade média de voos dos respectivos meses. Informações sobre o conjunto de dados podem ser obtidas executando o comando `help(AirPassengers)`. Não utilize saltos de fé!*
+
+## Questão 3:
+
+*Com base os dados `state.x77`, obtenha uma `tibble` com os estados norte americanos com renda (`Income`) acima da média e expectativa de vida (`Life Exp`) acima do terceiro quartil. Note que os nomes dos estados estão nomeando as linhas do `data.framestate.x77`. No entanto, os nomes deverão ser uma variável (a primeira coluna) na `tibble` a ser construída. **Dica**: utilize a função `quantile()` para obter o quartil desejado. Não utilize saltos de fé!*
+
+```{r}
+#| echo: false
+#| eval: false
+#| warning: false
+library(dplyr)
+library(tibble)
+
+states <- rownames(state.x77)
+dados <- as.data.frame(state.x77) |> as_tibble()
+dados |> 
+mutate(
+    "States" = states,
+    .before = Population
+  ) |> 
+  filter(
+    Population > mean(Population),
+    `Life Exp` > quantile(`Life Exp`)[4]
+  )
+```
+
+## Questão 4:
+
+*Considere o conjunto de dados `iris`. Você poderá consultar detalhes sobre o conjunto de dados em sua documentação, fazendo `help(iris)`. Utilizando uma implementação coerente que trate a informação em `iris`, obtenha a seguinte `tibble`. Não utilize saltos de fé!*
+
+```{r}
+#| tbl-cap-location: margin
+#| warning: false
+#| echo: false
+library(dplyr)
+
+iris |> 
+  select(Species, Petal.Width) |>
+  group_by(Species) |> 
+  summarise(
+    across(
+      .cols = where(is.numeric),
+      .fns = list(
+        \(x) n(),
+        \(x) mean(x),
+        \(x) median(x)
+      )
+    )
+  ) |> 
+  rename(
+    "especies" = Species,
+    "n_especies" = Petal.Width_1,
+    "media_largura_petala" = Petal.Width_2,
+    "mediana_largura_petala" = Petal.Width_3
+  )
+```
+
+## Questão 5:
+
+*Considere o conjunto de dados `starwars`. Esse conjunto de dados, disponível no pacote `dplyr` (carregue-o fazendo `library(dplyr)`), possui algumas variáveis com informações faltantes. **Dica**: a imagem ao lado ajudará identificar as colunas com informações faltantes. Os retângulos em cinza indicam informações faltantes. Por exemplo, pelo gráfico é possível notar que a segunda variável do banco de dados é uma das variáveis que possuem informações faltantes.*
+
+```{r}
+#| label: fig-margin
+#| fig-cap: "Os retâgulos cinzas são informações faltantes."
+#| column: margin
+#| message: false
+#| warning: false
+#| echo: false
+visdat::vis_dat(starwars)
+```
+
+**Responda**:
+
+1.  *Construa a `tibble` de nome `tbl_sem_na` com o conjunto de dados sem informações faltantes, em nenhuma das variáveis;*
+
+2.  *Construa a `tibble` de nome `tbl_media` com a média das variáveis numéricas de `starwars`.*
+
+3.  *Sem saltos de fé, construa a tibble abaixo com a quantidade de indivíduos agrupados pelas variáveis `gender` e `sex`.*
+
+```{r}
+#| echo: false
+#| warning: false
+library(dplyr)
+
+starwars |> 
+  select(gender, sex) |> 
+  group_by(gender, sex) |> 
+  summarise(n = n())
+```
+
+4.  *Explique o código abaixo. Não estou pedindo para dizer o que ele faz, mas sim como ele faz:*
+
+```{r}
+library(dplyr)
+
+sapply(
+  X = colnames(starwars),
+  FUN = \(x) sum(is.na(starwars[[x]]))
+)
+```
