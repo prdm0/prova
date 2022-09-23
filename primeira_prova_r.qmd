@@ -51,7 +51,7 @@ reference-location: margin
 
 ## Questão 3:
 
-*Com base os dados `state.x77`, obtenha uma `tibble` com os estados norte americanos com renda (`Income`) acima da média e expectativa de vida (`Life Exp`) acima do terceiro quartil. Note que os nomes dos estados estão nomeando as linhas do `data.framestate.x77`. No entanto, os nomes deverão ser uma variável (a primeira coluna) na `tibble` a ser construída. **Dica**: utilize a função `quantile()` para obter o quartil desejado. Não utilize saltos de fé!*
+*Com base os dados `state.x77`, obtenha uma `tibble` com os estados norte americanos com renda (`Income`) acima da média e expectativa de vida (`Life Exp`) acima do terceiro quartil. Note que os nomes dos estados estão nomeando as linhas do `data.frame` `state.x77`. No entanto, os nomes deverão ser uma variável (a primeira coluna) na `tibble` a ser construída. **Dica**: utilize a função `quantile()` para obter o quartil desejado. Não utilize saltos de fé!*
 
 ```{r}
 #| echo: false
