@@ -6,7 +6,7 @@ title: |
 abstract-title: "Instruções"
 abstract: 
   Prezado discente, ao final da avaliação, você deverá enviar o script R para o
-  o email [**pedro.rafael.mariho@gmail.com**](mailto:pedro.rafael.mariho@gmail.com). No título do email deverá constar o seu nome
+  o email [**pedro.rafael.marinho@gmail.com**](mailto:pedro.rafael.mariho@gmail.com). No título do email deverá constar o seu nome
   e sua matrícula. 
   
   No script, as respostas devem estar identificando bem as questões. Todos os comentários
