@@ -13,10 +13,10 @@ abstract:
   deverão ser feitos utilizando comentários válidos em R, i.e., deverão utilizar `#`. 
   
 subtitle: |
-  | **Introdução aos Sofwares Estatísticos / Programação em linguagem R**
+  | **Tópicos em Modelagem Matemática e Computacional / Programação em linguagem R**
   | (Primeira Avaliação)
 author: "**Prof. Dr. Pedro Rafael D. Marinho**"
-date: "2022-09-23"
+date: "2022-09-26"
 lang: pt
 language: 
   title-block-author-single: "Professor"
@@ -47,11 +47,29 @@ reference-location: margin
 
 ## Questão 2:
 
-*Considere o conjunto de dados `AirPassengers`. Utilizando o funcional coveniente, obtenha um vetor atômico com a proporção de voos por meses dos respectivos anos. Obtenha um outro vetor atômico com a quantidade média de voos dos respectivos meses. Informações sobre o conjunto de dados podem ser obtidas executando o comando `help(AirPassengers)`. Não utilize saltos de fé!*
+*Considere o conjunto de dados `AirPassengers`, conforme criado abaixo. Utilizando um funcional coveniente, obtenha um vetor atômico com a proporção de voos por meses dos respectivos anos. Obtenha um outro vetor atômico com a quantidade média de voos dos respectivos meses. Informações sobre o conjunto de dados podem ser obtidas executando o comando `help(AirPassengers)`. Você não precisa se dar o trabalho de entender o código abaixo. Apenas utilize a `tibble` `AirPassengers` gerada pelo código abaixo para responder a questão. Não utilize saltos de fé!*
+
+```{r}
+#| warning: false
+library(dplyr)
+library(tibble)
+
+AirPassengers <- 
+  AirPassengers |> 
+  as.matrix() |> 
+  matrix(ncol = 12L, nrow = 12L, byrow = TRUE) |> 
+  as_tibble()
+
+colnames(AirPassengers) <- month.abb
+
+AirPassengers <- AirPassengers |> 
+  mutate("Year" = 1949:1960, .before = "Jan")
+AirPassengers
+```
 
 ## Questão 3:
 
-*Com base os dados `state.x77`, obtenha uma `tibble` com os estados norte americanos com renda (`Income`) acima da média e expectativa de vida (`Life Exp`) acima do terceiro quartil. Note que os nomes dos estados estão nomeando as linhas do `data.frame` `state.x77`. No entanto, os nomes deverão ser uma variável (a primeira coluna) na `tibble` a ser construída. **Dica**: utilize a função `quantile()` para obter o quartil desejado. Não utilize saltos de fé!*
+*Com base os dados `state.x77`, obtenha uma `tibble` com os estados norte americanos com renda (`Income`) acima da média e expectativa de vida (`Life Exp`) acima do terceiro quartil. Note que os nomes dos estados estão nomeando as linhas do `data.framestate.x77`. No entanto, os nomes deverão ser uma variável (a primeira coluna) na `tibble` a ser construída. **Dica**: utilize a função `quantile()` para obter o quartil desejado. Não utilize saltos de fé!*
 
 ```{r}
 #| echo: false
