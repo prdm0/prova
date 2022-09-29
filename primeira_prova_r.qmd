@@ -41,13 +41,54 @@ format:
 reference-location: margin
 ---
 
+::: callout-note
+# Algumas observações importantes
+
+\
+As soluções que fiz usam unica e exclusivamente conceitos de estruturas de dados de R e funções que encontram-se nos slides. Por motivos óbvios, isso em nada impede que você escolha em utilizar outros conceitos que foram ministrados em sala de aula. \
+\
+Além disso, as soluções que fiz não são as melhores soluções. Existe formas mais elegantes de resolver os problemas. Porém, a ideia aqui é utilizar os conceitos congruentes aos assuntos da primeira avaliação.
+
+1.  O operador `|>` (operador de pipe) que utilizo nas soluções não são condições necessárias para resolver as questões de prova. Onde tiver `obj |> funcao()` você poderá substituir por `funcao(obj)`;
+
+2.  A biblioteca `dplyr` que é carregada, por exemplo, na questão 5, onde sugiro que seja feito `library(dplyr)` não era objeto de estudo, i.e., você para resolver as questões não precisava conhecer **NADA** da `dplyr`. O uso dela, aqui, se deve unica e exclusivamente para carregar o conjunto de dados `starwars`;
+
+3.  Sugiro fortemente que estudem as soluções.
+:::
+
 ## Questão 1:
 
 *Para acessar variáveis em um `data.frame` ou `tibble`, podemos utilizar os operadores `$` ou `[[`. Os operadores são totalmente redundantes? Existe alguma situação em que o uso do operador `[[` poderá ser preferível ao uso do operador `$`. Explique, e em caso afirmativo, dê um exempo.*
 
+```{r, warning=FALSE}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: true
+#| code-summary: "Veja a resposta clicando aqui!"
+#| eval: false
+
+# Na maioria dos casos, o operador $ e [[ poderão produzir os mesmos resultados. 
+# Todavia, em situações em que o nome de uma variável venha pertencer a um objeto
+# onde desejamos utilizar para acessar uma variável, o operador [[ será mais útil.
+
+# Note que "mpg" é uma string que passamos para o objeto de nome var. 
+# Por exemplo, esse é o nome de uma das variáveis do data.frame mtcars.
+
+var <- "mpg"
+
+# Note que usando o operador $ não poderei acessar mpg por meio de var:
+mtcars$var
+
+# Note porém que usando o operador [[ esse acesso, por intermédio de um objeto
+# intermediário será possível:
+
+mtcars[[var]]
+
+```
+
 ## Questão 2:
 
-*Considere o conjunto de dados `AirPassengers`, conforme criado abaixo. Utilizando um funcional coveniente, obtenha um vetor atômico com a proporção de voos por meses dos respectivos anos. Obtenha um outro vetor atômico com a quantidade média de voos dos respectivos meses. Informações sobre o conjunto de dados podem ser obtidas executando o comando `help(AirPassengers)`. Você não precisa se dar o trabalho de entender o código abaixo. Apenas utilize a `tibble` `AirPassengers` gerada pelo código abaixo para responder a questão. Não utilize saltos de fé!*
+*Considere o conjunto de dados `AirPassengers`, conforme criado abaixo. Utilizando um funcional coveniente, obtenha um vetor atômico com a proporção de voos por meses dos respectivos anos. Obtenha um outro vetor atômico com a quantidade média de voos dos respectivos meses. Informações sobre o conjunto de dados podem ser obtidas executando o comando `help(AirPassengers)`. Você não precisa se dar o trabalho de entender o código abaixo. Apenas utilize a `tibbleAirPassengers` gerada pelo código abaixo para responder a questão. Não utilize saltos de fé!*
 
 ```{r}
 #| warning: false
@@ -67,9 +108,43 @@ AirPassengers <- AirPassengers |>
 AirPassengers
 ```
 
+```{r}
+#| code-fold: true
+#| code-line-numbers: true
+#| warning: false
+#| echo: true
+#| code-summary: "Veja a resposta clicando aqui!"
+#| eval: false
+
+# Apenas utilizando o apply é possível obter a proporção de voos por meses, 
+# nos respectivos anos.
+prop_meses_por_anos <- 
+  AirPassengers[-1L] |> 
+  apply(MARGIN = 1L, FUN = \(x) x/sum(x))
+
+colnames(prop_meses_por_anos) <- AirPassengers$Year
+
+prop_meses_por_anos
+
+# Se quiser o vetor atômico contendo a proporção de voos por meses dos
+#  respectivos anos, então:
+
+prop_meses_por_anos |> as.numeric()
+
+# Mais fácil ainda para obter um vetor atômico com a quantidade média de voos
+# por meses.
+
+media_voos_meses <- 
+  AirPassengers[-1L] |> 
+  apply(MARGIN = 2L, FUN = mean)
+
+media_voos_meses
+
+```
+
 ## Questão 3:
 
-*Com base os dados `state.x77`, obtenha uma `tibble` com os estados norte americanos com renda (`Income`) acima da média e expectativa de vida (`Life Exp`) acima do terceiro quartil. Note que os nomes dos estados estão nomeando as linhas do `data.frame` `state.x77`. No entanto, os nomes deverão ser uma variável (a primeira coluna) na `tibble` a ser construída. **Dica**: utilize a função `quantile()` para obter o quartil desejado. Não utilize saltos de fé!*
+*Com base nos dados `state.x77`, obtenha uma `tibble` com os estados norte americanos com renda (`Income`) acima da média e expectativa de vida (`Life Exp`) acima do terceiro quartil. Note que os nomes dos estados estão nomeando as linhas do `data.framestate.x77`. No entanto, os nomes deverão ser uma variável (a primeira coluna) na `tibble` a ser construída. **Dica**: utilize a função `quantile()` para obter o quartil desejado. Não utilize saltos de fé!*
 
 ```{r}
 #| echo: false
@@ -89,6 +164,50 @@ mutate(
     Population > mean(Population),
     `Life Exp` > quantile(`Life Exp`)[4]
   )
+```
+
+```{r}
+#| code-fold: true
+#| code-line-numbers: true
+#| warning: false
+#| echo: true
+#| code-summary: "Veja a resposta clicando aqui!"
+#| eval: false
+
+# Obtendo os nomes dos estados para poder introduizr como variável do 
+# data.frame que irei reconstruir.
+State <- rownames(state.x77)
+
+# Perceba que state.x77 é uma matriz. Faça class(state.x77) e perceba.
+# Para converter em tibble ou data.frame basta fazer as_tbl ou as.data.frame,
+# respectivamente. No caso da tibble, teria que carregar a biblioteca tibble
+# fazendo library(tibble) no início da solução do exercício.
+
+state.x77 <- as.data.frame(state.x77)
+
+# Colocando o nome dos estados norte americanos como primeira variábel do 
+# data.frame.
+state.x77 <- cbind(State, state.x77)
+
+# Removendo os nomes das linhas
+rownames(state.x77) <- NULL
+
+# Valor da renda média
+renda_media <- mean(state.x77$Income)
+
+# Terceiro quartil
+terceiro_quartil <- quantile(state.x77$`Life Exp`)[4L]
+
+# Obtendo um vetor lógico com as posições (linhas do data.frame) cuja as rendas 
+# estão acima da média.
+id_media <- state.x77$Income > renda_media
+
+# Obtendo um vetor lógico com as posições (linhas do data.frame) cuja as 
+# expectativas de vidas estão acima da média.
+id_expec <- state.x77$`Life Exp` > terceiro_quartil
+
+# Estados norte americanos com renda e expectativa de vida acima da média
+state.x77[id_media & id_expec,] 
 ```
 
 ## Questão 4:
@@ -122,6 +241,59 @@ iris |>
   )
 ```
 
+```{r}
+#| code-fold: true
+#| code-line-numbers: true
+#| warning: false
+#| echo: true
+#| code-summary: "Veja a resposta clicando aqui!"
+#| eval: false
+
+# Obtendo species (primeira coluna do data.frame que será montado no final)
+especies <- levels(iris$Species)
+
+# Vamos dividir para consquistar. Abaixo estou criando os data.frames para cada
+# variável categória.
+iris_setosa <- iris[iris$Species == especies[1L],]
+iris_versicolor <- iris[iris$Species == especies[2L],]
+iris_virginica <- iris[iris$Species == especies[3L],]
+
+# Obtendo as variáveis necessárias para montar a tibble ou o data.frame final
+
+n_setosa <- nrow(iris_setosa)
+n_versicolor <- nrow(iris_versicolor)
+n_virginica <- nrow(iris_virginica)
+
+# Segunda coluna do data.frame (que será montado no final)
+n_especies <- c(n_setosa, n_versicolor, n_virginica)
+
+# Terceira coluna do data.frame (que será montado no final)
+
+media_largura_petala <- 
+  c(
+    mean(iris_setosa$Petal.Width),
+    mean(iris_versicolor$Petal.Width),
+    mean(iris_virginica$Petal.Width)
+  )
+
+# Quarta coluna do data.frame (que será montado no final)
+
+mediana_largura_petala <- 
+  c(
+    median(iris_setosa$Petal.Width),
+    median(iris_versicolor$Petal.Width),
+    median(iris_virginica$Petal.Width)
+  )
+
+data.frame(
+  especies,
+  n_especies,
+  media_largura_petala, 
+  mediana_largura_petala
+)
+
+```
+
 ## Questão 5:
 
 *Considere o conjunto de dados `starwars`. Esse conjunto de dados, disponível no pacote `dplyr` (carregue-o fazendo `library(dplyr)`), possui algumas variáveis com informações faltantes. **Dica**: a imagem ao lado ajudará identificar as colunas com informações faltantes. Os retângulos em cinza indicam informações faltantes. Por exemplo, pelo gráfico é possível notar que a segunda variável do banco de dados é uma das variáveis que possuem informações faltantes.*
@@ -140,7 +312,37 @@ visdat::vis_dat(starwars)
 
 1.  *Construa a `tibble` de nome `tbl_sem_na` com o conjunto de dados sem informações faltantes, em nenhuma das variáveis;*
 
+```{r}
+#| code-fold: true
+#| code-line-numbers: true
+#| warning: false
+#| echo: true
+#| code-summary: "Veja a resposta clicando aqui!"
+#| eval: false
+
+# Precisamos do pacote dplyr para acessar o conjunto de dados starwars.
+library(dplyr)
+
+tbl_sem_na <- 
+  starwars[!is.na(starwars$hair_color) & !is.na(starwars$mass) & !is.na(starwars$sex) & !is.na(starwars$height) & !is.na(starwars$gender) & !is.na(starwars$homeworld) & !is.na(starwars$birth_year),]
+```
+
 2.  *Construa a `tibble` de nome `tbl_media` com a média das variáveis numéricas de `starwars`.*
+
+```{r}
+#| code-fold: true
+#| code-line-numbers: true
+#| warning: false
+#| echo: true
+#| code-summary: "Veja a resposta clicando aqui!"
+#| eval: false
+
+data.frame(
+  media_height = mean(tbl_sem_na$height),
+  media_mass = mean(tbl_sem_na$mass),
+  media_birth_year = mean(tbl_sem_na$birth_year)
+)
+```
 
 3.  *Sem saltos de fé, construa a tibble abaixo com a quantidade de indivíduos agrupados pelas variáveis `gender` e `sex`.*
 
@@ -155,6 +357,38 @@ starwars |>
   summarise(n = n())
 ```
 
+```{r}
+#| code-fold: true
+#| code-line-numbers: true
+#| warning: false
+#| echo: true
+#| code-summary: "Veja a resposta clicando aqui!"
+#| eval: false
+
+# Construindo um data frame sem NA nas variáveis gender e sex
+
+df_sem_na <- starwars[!is.na(starwars$gender) & !is.na(starwars$sex), ]
+
+# Criando um vetor atômico com as quantidades. Se você não utilizasse o operador
+# &, poderia criar objetos intermediários e ir salvando as consultas.
+n <- 
+  c(
+    nrow(df_sem_na[df_sem_na$gender == "feminine" & df_sem_na$sex == "female", ]),
+    nrow(df_sem_na[df_sem_na$gender == "feminine" & df_sem_na$sex == "none", ]),
+    nrow(df_sem_na[df_sem_na$gender == "masculine" & df_sem_na$sex == "hermaphroditic", ]),
+    nrow(df_sem_na[df_sem_na$gender == "masculine" & df_sem_na$sex == "male", ]),
+    nrow(df_sem_na[df_sem_na$gender == "masculine" & df_sem_na$sex == "none", ]),
+    nrow(starwars[is.na(starwars$gender) & is.na(starwars$sex),])
+  )
+
+data.frame(
+  gender = c("feminine", "feminine", "masculine", "masculine", "masculine", NA),
+  sex = c("female", "none", "hermaphoroditic", "male", "none", NA),
+  n = n
+)
+
+```
+
 4.  *Explique o código abaixo. Não estou pedindo para dizer o que ele faz, mas sim como ele faz:*
 
 ```{r}
@@ -164,4 +398,28 @@ sapply(
   X = colnames(starwars),
   FUN = \(x) sum(is.na(starwars[[x]]))
 )
+```
+
+```{r}
+#| code-fold: true
+#| code-line-numbers: true
+#| warning: false
+#| echo: true
+#| code-summary: "Veja a resposta clicando aqui!"
+#| eval: false
+
+# Temos aqui o uso de um funcional; o funcional sapply. Esse funcional está 
+# recebendo um vetor da classe character passado como argumento para X.
+# Esse vetor corresponde aos nomes das colunas do data.frame de nome starwars.
+
+# Todo funcional espera uma função como argumento. Sendo assim, note que
+# is.na(starwars[[x]]), para cada valor de x, irá assumir o nome
+# de uma coluna do data.frame starwars, ou seja, será uma coluna de starwars.
+# Portanto, sum(is.na(starwars[[x]])) retornará o número de NA's de uma dada
+# coluna x.
+
+# O funcional sapply, que está iterando sobre os nomes das colunas de starwars,
+# i.e., x assumirá, em cada iteração do funcional, um nome de uma coluna de starwars.
+# Assim, o funcional irá retornar um vetor atômico com a quantidade de NA's, nas 
+# respectivas colunas iteradas pelo funcional.
 ```
