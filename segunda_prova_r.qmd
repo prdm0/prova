@@ -1,0 +1,112 @@
+---
+title: |
+  | Universidade Federal da Paraíba
+  | Centro de Ciências Exatas e da Natureza
+  | Departamento de Estatística
+abstract-title: "Instruções"
+abstract: 
+  Prezado discente, ao final da avaliação, você deverá enviar o script R para o
+  o email [**pedro.rafael.marinho@gmail.com**](mailto:pedro.rafael.marinho@gmail.com). No título do email deverá constar o seu nome
+  e sua matrícula. 
+  
+  No script, as respostas devem estar identificando bem as questões. Todos os comentários
+  deverão ser feitos utilizando comentários válidos em R, i.e., deverão utilizar `#`. 
+  
+subtitle: |
+  | **Programação em linguagem R (Introdução aos Sofwares Estatísticos)**
+  | (Segunda Avaliação)
+author: "**Prof. Dr. Pedro Rafael D. Marinho**"
+date: "2022-10-28"
+lang: pt
+language: 
+  title-block-author-single: "Professor"
+  title-block-published: "Data da Avaliação"
+  
+format:
+  html:
+    code-link: true
+    toc: true
+    number-sections: false
+    code-copy: true
+    html-math-method: katex
+    code-tools:
+      source: false
+      toggle: false
+      caption: none
+    
+# places footnotes and cited sources in the margin
+# other layout options (for example placing a 
+# figure in the margin)  will be set on per element
+# in examples below
+reference-location: margin
+---
+
+<!-- ::: callout-note -->
+
+<!-- # Algumas observações importantes -->
+
+<!-- \ -->
+
+<!-- As soluções que fiz usam unica e exclusivamente conceitos de estruturas de dados de R e funções que encontram-se nos slides. Por motivos óbvios, isso em nada impede que você escolha em utilizar outros conceitos que foram ministrados em sala de aula.\ -->
+
+<!-- \ -->
+
+<!-- Além disso, as soluções que fiz não são as melhores soluções. Existe formas mais elegantes de resolver os problemas. Porém, a ideia aqui é utilizar os conceitos congruentes aos assuntos da primeira avaliação. -->
+
+<!-- 1.  O operador `|>` (operador de pipe) que utilizo nas soluções não são condições necessárias para resolver as questões de prova. Onde tiver `obj |> funcao()` você poderá substituir por `funcao(obj)`; -->
+
+<!-- 2.  A biblioteca `dplyr` que é carregada, por exemplo, na questão 5, onde sugiro que seja feito `library(dplyr)` não era objeto de estudo, i.e., você para resolver as questões não precisava conhecer **NADA** da `dplyr`. O uso dela, aqui, se deve unica e exclusivamente para carregar o conjunto de dados `starwars`. Porém, soluções que utilizaram o `dplyr` são aceitas, haja vista que falei sobre esse pacote em sala de aula; -->
+
+<!-- 3.  Sugiro fortemente que estudem as soluções. -->
+
+<!-- ::: -->
+
+
+## Questão 1:
+
+Implemente as funções `lancar_moeda_loop(n = 100e3L)` e `lancar_moeda_sapply(n = 100e3L)`, em que repetem o experimento de lançar uma moeda equilibrada `n` vezes e observar se saiu cara. As funções deverão retornar uma lista com o número de caras (evento de interesse) e o valor aproximado com a probabilidade de sair cara. A função `lancar_moeda_loop()` deverá ser implementada utilizando uma instrução de loop e a função `lancar_moeda_sapply()` deverá utilizar o funcional `sapply()` do R. **Dica**: Utilize a função `sample(c('cara', 'coroa'), size = 1L)` em cada iteração do loop/funcional.
+
+## Questão 2:
+
+*Escreva duas funções em R, denominadas por `tree_walk()` e `tree_loop()`, respectivamente, que produzem a mesma saída, conforme o exemplo abaixo usando a função `tree_walk()`. A função `tree_walk()` deverá utilizar o funcional `walk` do pacote [purrr](https://purrr.tidyverse.org), apresentado em sala de aula e a função `tree_loop()` deverá utilizar, por sua vez, uma instrução de loop. Ambas as funções deverão ser implementadas com três argumentos, sejam eles: `s1` e `s2` que permitem manipular os caracteres a serem utilizados e `n` que informa o número de linhas.*
+
+```{r}
+#| echo: false
+#| eval: true
+#| cache: true
+library(purrr)
+tree_walk <- function(s1 = '*', s2 = '-', n = 5L){
+  linha <- function(i){
+    v <- rep(s2, n)
+    v[i] <- s1
+    cat(v, '\n')
+  }
+  purrr::walk(.x = 1L:n, .f = linha)
+}
+```
+
+```{r}
+tree_walk(s1 = '*', s2 = '-', n = 1L)
+tree_walk(s1 = '+', s2 = '-', n = 3L)
+tree_walk(s1 = '=', s2 = '!', n = 5L)
+```
+
+## Questão 3:
+
+*Walter está jogando um jogo com dois dados de 6 lados equiprováveis. O jogo consiste em lançar ambos os dados e caso a soma das faces seja divisível por 3, ele ganhará R\$ 6,00 reais, caso contrário, ele pagará R\$ 3,00 reais. Implemente a função `simulacao(n = 1e4L)` que retornará uma lista com o ganho de Walter e com um valor aproximado da probabilidade de sucesso (o número ser divisível por 3). **Dica**: Utilize a função `sample()` para sortear números de 1 a 6. Note o seu argumento `replace`!*
+
+## Questão 4:
+
+*Suponha que tenhamos uma urna com bolas, de mesmo tamanho, enumeradas de 1 à 100. Considere o experimento aleatório de retirar uma bola da urna e observar o seu número até obtermos a bola com número desejado. Nesse experimento, será considerado reposição, isto é, caso não tenha sido observado a numeração desejada, a bola será devolvida à urna e uma nova bola será sacada até encontra-se a bola com o número desejado. Implemente a função `jogo(n = 1e4L, numero = 51L)`, que simula `n` repetições do experimento que consiste em sacar uma bola da urna até achar uma bola com `numero = 51L`.*
+
+**Dicas**:
+
+1.  Note que existirá um loop com `n` repetições e que o experimento a ser avaliado em cada um desses loops envolve também repetições, uma vez que o experimento consiste em sacar bolas até sair uma bola com o número desejado;
+
+2.  Utilize a função `sample` para sortear números de 1 à 100, atentando-se ao argumento `replice`.
+
+## Questão 5: 
+
+*Implemente as funções `aprox_sin_loop(n = 50L, x = 0.5)`, `aprox_sin_sapply(n = 50L, x = 0.5)` e `aprox_sin_reduce(n = 50L, x = 0.5)`, que fornecem uma aproximação para $\sin(x)$, utilizando uma instrução de loop, o funcional `sapply()` e o funcional `Reduce()` de R. As três funções deverão considerar a seguinte aproximação, em que `n` será o número de somas a serem consideradas. Além disso, você também deverá implementar a função `fat(n)` que calcula o fatorial de `n`, para poder utilizar nas funções a serem implementadas.*
+
+$$\sin(x) = \sum_{n = 0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n + 1)!}.$$
