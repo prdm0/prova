@@ -1,8 +1,8 @@
 ---
 title: |
   | Universidade Federal da Paraíba
-  | Centro de Ciências Exatas e da Natureza
-  | Departamento de Estatística
+  | Centro de Informática
+  | Programa de Pós-Graduação em Modelagem Matemática e Computacional
 abstract-title: "Instruções"
 abstract: 
   Prezado discente, ao final da avaliação, você deverá enviar o script R para o
@@ -13,10 +13,10 @@ abstract:
   deverão ser feitos utilizando comentários válidos em R, i.e., deverão utilizar `#`. 
   
 subtitle: |
-  | **Programação em linguagem R (Introdução aos Sofwares Estatísticos)**
+  | **Tópicos em Modelagem Matemática e Computacional**
   | (Segunda Avaliação)
 author: "**Prof. Dr. Pedro Rafael D. Marinho**"
-date: "2022-10-28"
+date: "2022-11-16"
 lang: pt
 language: 
   title-block-author-single: "Professor"
