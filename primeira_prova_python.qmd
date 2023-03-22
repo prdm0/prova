@@ -1,0 +1,104 @@
+---
+title: |
+  | Universidade Federal da Paraíba
+  | Centro de Ciências Exatas e da Natureza
+  | Departamento de Estatística
+abstract-title: "Instruções"
+abstract: 
+  Prezado discente, ao final da avaliação, você deverá enviar o script Python para o
+  o email [**pedro.rafael.marinho@gmail.com**](mailto:pedro.rafael.mariho@gmail.com). No título do email deverá constar o seu nome
+  e sua matrícula. 
+  
+  No script, as respostas devem estar identificando bem as questões. Todos os comentários
+  deverão ser feitos utilizando comentários válidos em Python, i.e., deverão utilizar `#`. 
+  
+subtitle: |
+  | **GDEST0105 - PROGRAMAÇÃO ESTATÍSTICA COM PYTHON**
+  | (Primeira Avaliação)
+author: "**Prof. Dr. Pedro Rafael D. Marinho**"
+date: "2022-09-26"
+lang: pt
+language: 
+  title-block-author-single: "Professor"
+  title-block-published: "Data da Avaliação"
+  
+format:
+  html:
+    code-link: true
+    toc: true
+    number-sections: false
+    code-copy: true
+    html-math-method: katex
+    code-tools:
+      source: false
+      toggle: false
+      caption: none
+    
+# places footnotes and cited sources in the margin
+# other layout options (for example placing a 
+# figure in the margin)  will be set on per element
+# in examples below
+reference-location: margin
+---
+
+<!-- ::: callout-note -->
+<!-- # Algumas observações importantes -->
+
+<!-- \ -->
+<!-- As soluções que fiz usam unica e exclusivamente conceitos de estruturas de dados de R e funções que encontram-se nos slides. Por motivos óbvios, isso em nada impede que você escolha em utilizar outros conceitos que foram ministrados em sala de aula.\ -->
+<!-- \ -->
+<!-- Além disso, as soluções que fiz não são as melhores soluções. Existe formas mais elegantes de resolver os problemas. Porém, a ideia aqui é utilizar os conceitos congruentes aos assuntos da primeira avaliação. -->
+
+<!-- 1.  O operador `|>` (operador de pipe) que utilizo nas soluções não são condições necessárias para resolver as questões de prova. Onde tiver `obj |> funcao()` você poderá substituir por `funcao(obj)`; -->
+
+<!-- 2.  A biblioteca `dplyr` que é carregada, por exemplo, na questão 5, onde sugiro que seja feito `library(dplyr)` não era objeto de estudo, i.e., você para resolver as questões não precisava conhecer **NADA** da `dplyr`. O uso dela, aqui, se deve unica e exclusivamente para carregar o conjunto de dados `starwars`. Porém, soluções que utilizaram o `dplyr` são aceitas, haja vista que falei sobre esse pacote em sala de aula; -->
+
+<!-- 3.  Sugiro fortemente que estudem as soluções. -->
+<!-- ::: -->
+
+## Questão 1:
+
+*Considere os objetos nome, idade e salario, conforme abaixo:*
+
+```{.python}
+nome = "João da Silva"
+idade = 38
+salario = 12500.37
+```
+
+Utilizando *f-string* obtenha a saída abaixo:
+
+```{.python}
+Nome: [João da Silva+++++++], Idade: [0038], Salário: [***12500.370***]
+```
+
+## Questão 2:
+
+*Com base na página 99 do material de aula, construa a classe `MinhaLista` de modo que o método `__sub__` retorne a diferença da média de duas listas*.
+
+
+## Questão 3:
+
+*Escreva um código Python que utilize a compreensão de lista para criar uma nova lista chamada `squared_numbers`, que contém o quadrado de cada número na lista original `numbers`. Considere*
+
+```{.python}
+numbers = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+```
+
+## Questão 4:
+
+
+*Escreva um programa em Python que retorne uma lista com apenas os métodos dunders (métodos mágicos) na lista `dir(list)`*, em que:
+
+```{python}
+dir(list)
+```
+
+## Questão 5:
+
+
+*Com base no objeto `string` abaixo, como obter o número de ocorrências do caractere `p`? Resolva de duas formas: (1) usando o método `count()` e (2) usando compreensões de lista*
+
+```{.python}
+string = "Eu amo programar em python. Um estatístico precisa saber programar!"
+```

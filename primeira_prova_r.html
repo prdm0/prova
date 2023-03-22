@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Prof.&nbsp;Dr.&nbsp;Pedro Rafael D. Marinho">
+<title>quarto-input69a2eb70</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="primeira_prova_r_files/libs/clipboard/clipboard.min.js"></script>
+<script src="primeira_prova_r_files/libs/quarto-html/quarto.js"></script>
+<script src="primeira_prova_r_files/libs/quarto-html/popper.min.js"></script>
+<script src="primeira_prova_r_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="primeira_prova_r_files/libs/quarto-html/anchor.min.js"></script>
+<link href="primeira_prova_r_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="primeira_prova_r_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="primeira_prova_r_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="primeira_prova_r_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="primeira_prova_r_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+</head>
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Índice</h2>
+   
+  <ul>
+<li><a href="#quest%C3%A3o-1" id="toc-questão-1" class="nav-link active" data-scroll-target="#quest%C3%A3o-1">Questão 1:</a></li>
+  <li><a href="#quest%C3%A3o-2" id="toc-questão-2" class="nav-link" data-scroll-target="#quest%C3%A3o-2">Questão 2:</a></li>
+  <li><a href="#quest%C3%A3o-3" id="toc-questão-3" class="nav-link" data-scroll-target="#quest%C3%A3o-3">Questão 3:</a></li>
+  <li><a href="#quest%C3%A3o-4" id="toc-questão-4" class="nav-link" data-scroll-target="#quest%C3%A3o-4">Questão 4:</a></li>
+  <li><a href="#quest%C3%A3o-5" id="toc-questão-5" class="nav-link" data-scroll-target="#quest%C3%A3o-5">Questão 5:</a></li>
+  </ul></nav>
+</div>
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"></h1>
+<p>Universidade Federal da Paraíba<br>
+Centro de Ciências Exatas e da Natureza<br>
+Departamento de Estatística</p>
+<p class="subtitle lead"></p>
+<p><strong>GDEST0105 - PROGRAMAÇÃO ESTATÍSTICA COM PYTHON</strong><br>
+(Primeira Avaliação)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Professor</div>
+    <div class="quarto-title-meta-contents">
+             <p><strong>Prof.&nbsp;Dr.&nbsp;Pedro Rafael D. Marinho</strong> </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data da Avaliação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">26 de setembro de 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Instruções</div>
+    Prezado discente, ao final da avaliação, você deverá enviar o script Python para o o email <a href="mailto:pedro.rafael.mariho@gmail.com"><strong>pedro.rafael.marinho@gmail.com</strong></a>. No título do email deverá constar o seu nome e sua matrícula. No script, as respostas devem estar identificando bem as questões. Todos os comentários deverão ser feitos utilizando comentários válidos em Python, i.e., deverão utilizar <code>#</code>.
+  </div>
+</div>
+
+</header><div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Algumas observações importantes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><br>
+As soluções que fiz usam unica e exclusivamente conceitos de estruturas de dados de R e funções que encontram-se nos slides. Por motivos óbvios, isso em nada impede que você escolha em utilizar outros conceitos que foram ministrados em sala de aula.<br><br>
+Além disso, as soluções que fiz não são as melhores soluções. Existe formas mais elegantes de resolver os problemas. Porém, a ideia aqui é utilizar os conceitos congruentes aos assuntos da primeira avaliação.</p>
+<ol type="1">
+<li><p>O operador <code>|&gt;</code> (operador de pipe) que utilizo nas soluções não são condições necessárias para resolver as questões de prova. Onde tiver <code>obj |&gt; funcao()</code> você poderá substituir por <code>funcao(obj)</code>;</p></li>
+<li><p>A biblioteca <code>dplyr</code> que é carregada, por exemplo, na questão 5, onde sugiro que seja feito <code><a href="https://dplyr.tidyverse.org">library(dplyr)</a></code> não era objeto de estudo, i.e., você para resolver as questões não precisava conhecer <strong>NADA</strong> da <code>dplyr</code>. O uso dela, aqui, se deve unica e exclusivamente para carregar o conjunto de dados <code>starwars</code>. Porém, soluções que utilizaram o <code>dplyr</code> são aceitas, haja vista que falei sobre esse pacote em sala de aula;</p></li>
+<li><p>Sugiro fortemente que estudem as soluções.</p></li>
+</ol>
+</div>
+</div>
+<section id="questão-1" class="level2"><h2 class="anchored" data-anchor-id="questão-1">Questão 1:</h2>
+<p><em>Para acessar variáveis em um <code>data.frame</code> ou <code>tibble</code>, podemos utilizar os operadores <code>$</code> ou <code>[[</code>. Os operadores são totalmente redundantes? Existe alguma situação em que o uso do operador <code>[[</code> poderá ser preferível ao uso do operador <code>$</code>. Explique, e em caso afirmativo, dê um exempo.</em></p>
+<div class="cell">
+<details><summary>Veja a resposta clicando aqui!</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Na maioria dos casos, o operador $ e [[ poderão produzir os mesmos resultados. </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># Todavia, em situações em que o nome de uma variável venha pertencer a um objeto</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># onde desejamos utilizar para acessar uma variável, o operador [[ será mais útil.</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Note que "mpg" é uma string que passamos para o objeto de nome var. </span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Por exemplo, esse é o nome de uma das variáveis do data.frame mtcars.</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>var <span class="ot">&lt;-</span> <span class="st">"mpg"</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># Note que usando o operador $ não poderei acessar mpg por meio de var:</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>mtcars<span class="sc">$</span>var</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># Note porém que usando o operador [[ esse acesso, por intermédio de um objeto</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># intermediário será possível:</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a>mtcars[[var]]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="questão-2" class="level2"><h2 class="anchored" data-anchor-id="questão-2">Questão 2:</h2>
+<p><em>Considere o conjunto de dados <code>AirPassengers</code>, conforme criado abaixo. Utilizando um funcional coveniente, obtenha um vetor atômico com a proporção de voos por meses dos respectivos anos. Obtenha um outro vetor atômico com a quantidade média de voos dos respectivos meses. Informações sobre o conjunto de dados podem ser obtidas executando o comando <code><a href="https://rdrr.io/r/datasets/AirPassengers.html">help(AirPassengers)</a></code>. Você não precisa se dar o trabalho de entender o código abaixo. Apenas utilize a <code>tibbleAirPassengers</code> gerada pelo código abaixo para responder a questão. Não utilize saltos de fé!</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">AirPassengers</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="va">AirPassengers</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">12L</span>, nrow <span class="op">=</span> <span class="fl">12L</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">month.abb</span></span>
+<span></span>
+<span><span class="va">AirPassengers</span> <span class="op">&lt;-</span> <span class="va">AirPassengers</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="st">"Year"</span> <span class="op">=</span> <span class="fl">1949</span><span class="op">:</span><span class="fl">1960</span>, .before <span class="op">=</span> <span class="st">"Jan"</span><span class="op">)</span></span>
+<span><span class="va">AirPassengers</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 13
+    Year   Jan   Feb   Mar   Apr   May   Jun   Jul   Aug   Sep   Oct   Nov   Dec
+   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1  1949   112   118   132   129   121   135   148   148   136   119   104   118
+ 2  1950   115   126   141   135   125   149   170   170   158   133   114   140
+ 3  1951   145   150   178   163   172   178   199   199   184   162   146   166
+ 4  1952   171   180   193   181   183   218   230   242   209   191   172   194
+ 5  1953   196   196   236   235   229   243   264   272   237   211   180   201
+ 6  1954   204   188   235   227   234   264   302   293   259   229   203   229
+ 7  1955   242   233   267   269   270   315   364   347   312   274   237   278
+ 8  1956   284   277   317   313   318   374   413   405   355   306   271   306
+ 9  1957   315   301   356   348   355   422   465   467   404   347   305   336
+10  1958   340   318   362   348   363   435   491   505   404   359   310   337
+11  1959   360   342   406   396   420   472   548   559   463   407   362   405
+12  1960   417   391   419   461   472   535   622   606   508   461   390   432</code></pre>
+</div>
+</div>
+<div class="cell">
+<details><summary>Veja a resposta clicando aqui!</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Apenas utilizando o apply é possível obter a proporção de voos por meses, </span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># nos respectivos anos.</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>prop_meses_por_anos <span class="ot">&lt;-</span> </span>
+<span id="cb4-4"><a href="#cb4-4"></a>  AirPassengers[<span class="sc">-</span>1L] <span class="sc">|&gt;</span> </span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">apply</span>(<span class="at">MARGIN =</span> 1L, <span class="at">FUN =</span> \(x) x<span class="sc">/</span><span class="fu">sum</span>(x))</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">colnames</span>(prop_meses_por_anos) <span class="ot">&lt;-</span> AirPassengers<span class="sc">$</span>Year</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>prop_meses_por_anos</span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co"># Se quiser o vetor atômico contendo a proporção de voos por meses dos</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#  respectivos anos, então:</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a>prop_meses_por_anos <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co"># Mais fácil ainda para obter um vetor atômico com a quantidade média de voos</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co"># por meses.</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a></span>
+<span id="cb4-19"><a href="#cb4-19"></a>media_voos_meses <span class="ot">&lt;-</span> </span>
+<span id="cb4-20"><a href="#cb4-20"></a>  AirPassengers[<span class="sc">-</span>1L] <span class="sc">|&gt;</span> </span>
+<span id="cb4-21"><a href="#cb4-21"></a>  <span class="fu">apply</span>(<span class="at">MARGIN =</span> 2L, <span class="at">FUN =</span> mean)</span>
+<span id="cb4-22"><a href="#cb4-22"></a></span>
+<span id="cb4-23"><a href="#cb4-23"></a>media_voos_meses</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="questão-3" class="level2"><h2 class="anchored" data-anchor-id="questão-3">Questão 3:</h2>
+<p><em>Com base nos dados <code>state.x77</code>, obtenha uma <code>tibble</code> com os estados norte americanos com renda (<code>Income</code>) acima da média e expectativa de vida (<code>Life Exp</code>) acima do terceiro quartil. Note que os nomes dos estados estão nomeando as linhas do <code>data.framestate.x77</code>. No entanto, os nomes deverão ser uma variável (a primeira coluna) na <code>tibble</code> a ser construída. <strong>Dica</strong>: utilize a função <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> para obter o quartil desejado. Não utilize saltos de fé!</em></p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<details><summary>Veja a resposta clicando aqui!</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Obtendo os nomes dos estados para poder introduizr como variável do </span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># data.frame que irei reconstruir.</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>State <span class="ot">&lt;-</span> <span class="fu">rownames</span>(state.x77)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co"># Perceba que state.x77 é uma matriz. Faça class(state.x77) e perceba.</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># Para converter em tibble ou data.frame basta fazer as_tbl ou as.data.frame,</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># respectivamente. No caso da tibble, teria que carregar a biblioteca tibble</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co"># fazendo library(tibble) no início da solução do exercício.</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a>state.x77 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(state.x77)</span>
+<span id="cb5-11"><a href="#cb5-11"></a></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co"># Colocando o nome dos estados norte americanos como primeira variábel do </span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co"># data.frame.</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>state.x77 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(State, state.x77)</span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co"># Removendo os nomes das linhas</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="fu">rownames</span>(state.x77) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co"># Valor da renda média</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>renda_media <span class="ot">&lt;-</span> <span class="fu">mean</span>(state.x77<span class="sc">$</span>Income)</span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="co"># Terceiro quartil</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>terceiro_quartil <span class="ot">&lt;-</span> <span class="fu">quantile</span>(state.x77<span class="sc">$</span><span class="st">`</span><span class="at">Life Exp</span><span class="st">`</span>)[4L]</span>
+<span id="cb5-24"><a href="#cb5-24"></a></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co"># Obtendo um vetor lógico com as posições (linhas do data.frame) cuja as rendas </span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="co"># estão acima da média.</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a>id_media <span class="ot">&lt;-</span> state.x77<span class="sc">$</span>Income <span class="sc">&gt;</span> renda_media</span>
+<span id="cb5-28"><a href="#cb5-28"></a></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="co"># Obtendo um vetor lógico com as posições (linhas do data.frame) cuja as </span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="co"># expectativas de vidas estão acima da média.</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a>id_expec <span class="ot">&lt;-</span> state.x77<span class="sc">$</span><span class="st">`</span><span class="at">Life Exp</span><span class="st">`</span> <span class="sc">&gt;</span> terceiro_quartil</span>
+<span id="cb5-32"><a href="#cb5-32"></a></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co"># Estados norte americanos com renda e expectativa de vida acima da média</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a>state.x77[id_media <span class="sc">&amp;</span> id_expec,] </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="questão-4" class="level2"><h2 class="anchored" data-anchor-id="questão-4">Questão 4:</h2>
+<p><em>Considere o conjunto de dados <code>iris</code>. Você poderá consultar detalhes sobre o conjunto de dados em sua documentação, fazendo <code><a href="https://rdrr.io/r/datasets/iris.html">help(iris)</a></code>. Utilizando uma implementação coerente que trate a informação em <code>iris</code>, obtenha a seguinte <code>tibble</code>. Não utilize saltos de fé!</em></p>
+<div class="cell tbl-cap-location-margin">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  especies   n_especies media_largura_petala mediana_largura_petala
+  &lt;fct&gt;           &lt;int&gt;                &lt;dbl&gt;                  &lt;dbl&gt;
+1 setosa             50                0.246                    0.2
+2 versicolor         50                1.33                     1.3
+3 virginica          50                2.03                     2  </code></pre>
+</div>
+</div>
+<div class="cell">
+<details><summary>Veja a resposta clicando aqui!</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Obtendo species (primeira coluna do data.frame que será montado no final)</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>especies <span class="ot">&lt;-</span> <span class="fu">levels</span>(iris<span class="sc">$</span>Species)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># Vamos dividir para consquistar. Abaixo estou criando os data.frames para cada</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co"># variável categória.</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>iris_setosa <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>Species <span class="sc">==</span> especies[1L],]</span>
+<span id="cb7-7"><a href="#cb7-7"></a>iris_versicolor <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>Species <span class="sc">==</span> especies[2L],]</span>
+<span id="cb7-8"><a href="#cb7-8"></a>iris_virginica <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>Species <span class="sc">==</span> especies[3L],]</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co"># Obtendo as variáveis necessárias para montar a tibble ou o data.frame final</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a>n_setosa <span class="ot">&lt;-</span> <span class="fu">nrow</span>(iris_setosa)</span>
+<span id="cb7-13"><a href="#cb7-13"></a>n_versicolor <span class="ot">&lt;-</span> <span class="fu">nrow</span>(iris_versicolor)</span>
+<span id="cb7-14"><a href="#cb7-14"></a>n_virginica <span class="ot">&lt;-</span> <span class="fu">nrow</span>(iris_virginica)</span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co"># Segunda coluna do data.frame (que será montado no final)</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>n_especies <span class="ot">&lt;-</span> <span class="fu">c</span>(n_setosa, n_versicolor, n_virginica)</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co"># Terceira coluna do data.frame (que será montado no final)</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a></span>
+<span id="cb7-21"><a href="#cb7-21"></a>media_largura_petala <span class="ot">&lt;-</span> </span>
+<span id="cb7-22"><a href="#cb7-22"></a>  <span class="fu">c</span>(</span>
+<span id="cb7-23"><a href="#cb7-23"></a>    <span class="fu">mean</span>(iris_setosa<span class="sc">$</span>Petal.Width),</span>
+<span id="cb7-24"><a href="#cb7-24"></a>    <span class="fu">mean</span>(iris_versicolor<span class="sc">$</span>Petal.Width),</span>
+<span id="cb7-25"><a href="#cb7-25"></a>    <span class="fu">mean</span>(iris_virginica<span class="sc">$</span>Petal.Width)</span>
+<span id="cb7-26"><a href="#cb7-26"></a>  )</span>
+<span id="cb7-27"><a href="#cb7-27"></a></span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="co"># Quarta coluna do data.frame (que será montado no final)</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a></span>
+<span id="cb7-30"><a href="#cb7-30"></a>mediana_largura_petala <span class="ot">&lt;-</span> </span>
+<span id="cb7-31"><a href="#cb7-31"></a>  <span class="fu">c</span>(</span>
+<span id="cb7-32"><a href="#cb7-32"></a>    <span class="fu">median</span>(iris_setosa<span class="sc">$</span>Petal.Width),</span>
+<span id="cb7-33"><a href="#cb7-33"></a>    <span class="fu">median</span>(iris_versicolor<span class="sc">$</span>Petal.Width),</span>
+<span id="cb7-34"><a href="#cb7-34"></a>    <span class="fu">median</span>(iris_virginica<span class="sc">$</span>Petal.Width)</span>
+<span id="cb7-35"><a href="#cb7-35"></a>  )</span>
+<span id="cb7-36"><a href="#cb7-36"></a></span>
+<span id="cb7-37"><a href="#cb7-37"></a><span class="fu">data.frame</span>(</span>
+<span id="cb7-38"><a href="#cb7-38"></a>  especies,</span>
+<span id="cb7-39"><a href="#cb7-39"></a>  n_especies,</span>
+<span id="cb7-40"><a href="#cb7-40"></a>  media_largura_petala, </span>
+<span id="cb7-41"><a href="#cb7-41"></a>  mediana_largura_petala</span>
+<span id="cb7-42"><a href="#cb7-42"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="questão-5" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="questão-5">Questão 5:</h2>
+<p><em>Considere o conjunto de dados <code>starwars</code>. Esse conjunto de dados, disponível no pacote <code>dplyr</code> (carregue-o fazendo <code><a href="https://dplyr.tidyverse.org">library(dplyr)</a></code>), possui algumas variáveis com informações faltantes. <strong>Dica</strong>: a imagem ao lado ajudará identificar as colunas com informações faltantes. Os retângulos em cinza indicam informações faltantes. Por exemplo, pelo gráfico é possível notar que a segunda variável do banco de dados é uma das variáveis que possuem informações faltantes.</em></p>
+<div class="cell page-columns page-full">
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<div id="fig-margin" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="primeira_prova_r_files/figure-html/fig-margin-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1: Os retâgulos cinzas são informações faltantes.</figcaption><p></p>
+</figure>
+</div>
+</div></div></div>
+<p><strong>Responda</strong>:</p>
+<ol type="1">
+<li><em>Construa a <code>tibble</code> de nome <code>tbl_sem_na</code> com o conjunto de dados sem informações faltantes, em nenhuma das variáveis;</em></li>
+</ol>
+<div class="cell">
+<details><summary>Veja a resposta clicando aqui!</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Precisamos do pacote dplyr para acessar o conjunto de dados starwars.</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>tbl_sem_na <span class="ot">&lt;-</span> </span>
+<span id="cb8-5"><a href="#cb8-5"></a>  starwars[<span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>hair_color) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>mass) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>sex) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>height) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>gender) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>homeworld) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>birth_year),]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="2" type="1">
+<li><em>Construa a <code>tibble</code> de nome <code>tbl_media</code> com a média das variáveis numéricas de <code>starwars</code>.</em></li>
+</ol>
+<div class="cell">
+<details><summary>Veja a resposta clicando aqui!</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="at">media_height =</span> <span class="fu">mean</span>(tbl_sem_na<span class="sc">$</span>height),</span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="at">media_mass =</span> <span class="fu">mean</span>(tbl_sem_na<span class="sc">$</span>mass),</span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="at">media_birth_year =</span> <span class="fu">mean</span>(tbl_sem_na<span class="sc">$</span>birth_year)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="3" type="1">
+<li><em>Sem saltos de fé, construa a tibble abaixo com a quantidade de indivíduos agrupados pelas variáveis <code>gender</code> e <code>sex</code>.</em></li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+# Groups:   gender [3]
+  gender    sex                n
+  &lt;chr&gt;     &lt;chr&gt;          &lt;int&gt;
+1 feminine  female            16
+2 feminine  none               1
+3 masculine hermaphroditic     1
+4 masculine male              60
+5 masculine none               5
+6 &lt;NA&gt;      &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+<div class="cell">
+<details><summary>Veja a resposta clicando aqui!</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Construindo um data frame sem NA nas variáveis gender e sex</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>df_sem_na <span class="ot">&lt;-</span> starwars[<span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>gender) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>sex), ]</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># Criando um vetor atômico com as quantidades. Se você não utilizasse o operador</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co"># &amp;, poderia criar objetos intermediários e ir salvando as consultas.</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>n <span class="ot">&lt;-</span> </span>
+<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">c</span>(</span>
+<span id="cb11-9"><a href="#cb11-9"></a>    <span class="fu">nrow</span>(df_sem_na[df_sem_na<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">"feminine"</span> <span class="sc">&amp;</span> df_sem_na<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"female"</span>, ]),</span>
+<span id="cb11-10"><a href="#cb11-10"></a>    <span class="fu">nrow</span>(df_sem_na[df_sem_na<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">"feminine"</span> <span class="sc">&amp;</span> df_sem_na<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"none"</span>, ]),</span>
+<span id="cb11-11"><a href="#cb11-11"></a>    <span class="fu">nrow</span>(df_sem_na[df_sem_na<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">"masculine"</span> <span class="sc">&amp;</span> df_sem_na<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"hermaphroditic"</span>, ]),</span>
+<span id="cb11-12"><a href="#cb11-12"></a>    <span class="fu">nrow</span>(df_sem_na[df_sem_na<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">"masculine"</span> <span class="sc">&amp;</span> df_sem_na<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"male"</span>, ]),</span>
+<span id="cb11-13"><a href="#cb11-13"></a>    <span class="fu">nrow</span>(df_sem_na[df_sem_na<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">"masculine"</span> <span class="sc">&amp;</span> df_sem_na<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"none"</span>, ]),</span>
+<span id="cb11-14"><a href="#cb11-14"></a>    <span class="fu">nrow</span>(starwars[<span class="fu">is.na</span>(starwars<span class="sc">$</span>gender) <span class="sc">&amp;</span> <span class="fu">is.na</span>(starwars<span class="sc">$</span>sex),])</span>
+<span id="cb11-15"><a href="#cb11-15"></a>  )</span>
+<span id="cb11-16"><a href="#cb11-16"></a></span>
+<span id="cb11-17"><a href="#cb11-17"></a><span class="fu">data.frame</span>(</span>
+<span id="cb11-18"><a href="#cb11-18"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"feminine"</span>, <span class="st">"feminine"</span>, <span class="st">"masculine"</span>, <span class="st">"masculine"</span>, <span class="st">"masculine"</span>, <span class="cn">NA</span>),</span>
+<span id="cb11-19"><a href="#cb11-19"></a>  <span class="at">sex =</span> <span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"none"</span>, <span class="st">"hermaphoroditic"</span>, <span class="st">"male"</span>, <span class="st">"none"</span>, <span class="cn">NA</span>),</span>
+<span id="cb11-20"><a href="#cb11-20"></a>  <span class="at">n =</span> n</span>
+<span id="cb11-21"><a href="#cb11-21"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="4" type="1">
+<li><em>Explique o código abaixo. Não estou pedindo para dizer o que ele faz, mas sim como ele faz:</em></li>
+</ol>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span></span>
+<span>  X <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span>,</span>
+<span>  FUN <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">[[</span><span class="va">x</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      name     height       mass hair_color skin_color  eye_color birth_year 
+         0          6         28          5          0          0         44 
+       sex     gender  homeworld    species      films   vehicles  starships 
+         4          4         10          4          0          0          0 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details><summary>Veja a resposta clicando aqui!</summary><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Temos aqui o uso de um funcional; o funcional sapply. Esse funcional está </span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="co"># recebendo um vetor da classe character passado como argumento para X.</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># Esse vetor corresponde aos nomes das colunas do data.frame de nome starwars.</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="co"># Todo funcional espera uma função como argumento. Sendo assim, note que</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co"># is.na(starwars[[x]]), para cada valor de x, irá assumir o nome</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="co"># de uma coluna do data.frame starwars, ou seja, será uma coluna de starwars.</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="co"># Portanto, sum(is.na(starwars[[x]])) retornará o número de NA's de uma dada</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="co"># coluna x.</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a></span>
+<span id="cb14-11"><a href="#cb14-11"></a><span class="co"># O funcional sapply, que está iterando sobre os nomes das colunas de starwars,</span></span>
+<span id="cb14-12"><a href="#cb14-12"></a><span class="co"># i.e., x assumirá, em cada iteração do funcional, um nome de uma coluna de starwars.</span></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="co"># Assim, o funcional irá retornar um vetor atômico com a quantidade de NA's, nas </span></span>
+<span id="cb14-14"><a href="#cb14-14"></a><span class="co"># respectivas colunas iteradas pelo funcional.</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section></main><!-- /main column --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
